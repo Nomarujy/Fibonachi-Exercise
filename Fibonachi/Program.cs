@@ -5,10 +5,24 @@ partial class Program
 {
     static void Main()
     {
-        FibanochiLenghtFinder finder = new(5);
+        Console.Write("Введите модуль:");
+        string? input = Console.ReadLine();
 
-        var value = finder.Find();
+        int module;
 
-        Console.WriteLine($"Sequence lenght is {value}");
+        if (int.TryParse(input, out module))
+        {
+            FibanochiLenghtFinder finder = new(module);
+
+            var value = finder.Find();
+
+            Console.WriteLine($"Sequence lenght is {value}");
+        }
+        else
+        {
+            Console.WriteLine("некорректный ввод");
+        }
+
+        Console.ReadKey();
     } 
 }
