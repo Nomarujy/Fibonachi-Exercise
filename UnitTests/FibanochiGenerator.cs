@@ -4,11 +4,11 @@ namespace UnitTests
 {
     public class FibanochiGeneratorTest
     {
-        FibonachiGenerator Generator;
+        private readonly FibonachiGenerator Generator;
 
         public FibanochiGeneratorTest()
         {
-            Generator = new(10);
+            Generator = new();
         }
 
 

@@ -1,38 +1,47 @@
-﻿namespace Fibonachi.Utilites
+﻿using System.CodeDom.Compiler;
+
+namespace Fibonachi.Utilites
 {
-    public class SequencesLenghtFinder
+    public class SequenceLenghtFinder
     {
-        private const int sequenceStartLenght = 3;
-
-        public int FindSequenceLenght(List<int> generated)
+        public SequenceLenghtFinder(int minimalSequenceLenght = 3)
         {
-            var sequence = generated.GetRange(0, sequenceStartLenght);
+            MinimalSequenceLenght = minimalSequenceLenght;
+        }
 
-            for (int i = sequenceStartLenght; i < generated.Count; i++)
+        public int MinimalSequenceLenght { get; set; }
+
+        public int FindByList(List<int> nums)
+        {
+            for (int i = MinimalSequenceLenght; i < nums.Count; i++)
             {
-                if (sequence[0] == generated[i])
+                if (nums[0] == nums[i])
                 {
-                    bool sequenceEnded = true;
-                    for (int seqIndex = 1; seqIndex < sequence.Count; seqIndex++)
+                    if (ListHaveRepeatableSequence(i, nums))
                     {
-                        if (sequence[seqIndex] != generated[i + seqIndex])
-                        {
-                            sequence = generated.GetRange(0, i + seqIndex);
-                            sequenceEnded = false;
-                            break;
-                        }
+                        return i;
                     }
-                    if (sequenceEnded)
-                    {
-                        return sequence.Count;
-                    }
-                }
-                else
-                {
-                    sequence = generated.GetRange(0, i + 1);
                 }
             }
-            throw new Exception();
+            return -1;
+        }
+
+        private bool ListHaveRepeatableSequence(int sequenceLenght, List<int> nums)
+        {
+            if (sequenceLenght * 2 > nums.Count) return false;
+
+            List<int> sequence = nums.GetRange(0, sequenceLenght);
+            bool sequenceMathes = true;
+
+            for (int i = 0; i < sequenceLenght; i++)
+            {
+                if (nums[sequenceLenght + i] != sequence[i])
+                {
+                    sequenceMathes = false;
+                    break;
+                }
+            }
+            return sequenceMathes;
         }
     }
 }

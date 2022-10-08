@@ -9,7 +9,7 @@ namespace UnitTests
 {
     public class SequencesLenghtFinderTest
     {
-        SequencesLenghtFinder Finder;
+        SequenceLenghtFinder Finder;
 
         public SequencesLenghtFinderTest()
         {
@@ -17,21 +17,42 @@ namespace UnitTests
         }
 
         [Fact]
-        public void FindSeqenceWithsameNumbers()
+        public void ReturnNegativeIfSequenceNotRepetable()
         {
-            List<int> nums = new List<int>() { 5, 5, 5, 5, 5, 5};
+            List<int> nums = new List<int>() { 5, 5, 5, 6, 5, 5};
 
-            int lenght = Finder.FindSequenceLenght(nums);
+            int lenght = Finder.FindByList(nums);
 
-            Assert.Equal(3, lenght);
+            Assert.Equal(-1, lenght);
         }
 
         [Fact]
-        public void FindSeqenceWithDifferentNumbers()
+        public void ReturnMinimalSequenceLenght()
         {
-            List<int> nums = new List<int>() { 5, 5, 6, 6, 5, 5, 6, 6 };
+            List<int> nums = new List<int>() { 5, 5, 5, 5, 5, 5 };
+            Finder.MinimalSequenceLenght = 2;
 
-            int lenght = Finder.FindSequenceLenght(nums);
+            int lenght = Finder.FindByList(nums);
+
+            Assert.Equal(2, lenght);
+        }
+
+        [Fact]
+        public void ReturnNegativeIfSizeNotEnough()
+        {
+            List<int> nums = new List<int>() { 1, 2, 3, 4, 1, 2, 3};
+
+            int lenght = Finder.FindByList(nums);
+
+            Assert.Equal(-1, lenght);
+        }
+
+        [Fact]
+        public void ReturnSizeIfSizeEnough()
+        {
+            List<int> nums = new List<int>() { 1, 2, 3, 4, 1, 2, 3, 4 };
+
+            int lenght = Finder.FindByList(nums);
 
             Assert.Equal(4, lenght);
         }

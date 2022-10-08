@@ -10,18 +10,18 @@ partial class Program
 
         int module;
 
-        if (int.TryParse(input, out module))
+        /*if (int.TryParse(input, out module))
         {
-            FibanochiLenghtFinder finder = new(module);
+            FibanochiPeriodFinder finder = new();
 
-            var value = finder.Find();
+            var value = finder.Find(module);
 
             Console.WriteLine($"Sequence lenght is {value}");
         }
         else
         {
             Console.WriteLine("некорректный ввод");
-        }
+        }*/
 
         Console.ReadKey();
     } 
