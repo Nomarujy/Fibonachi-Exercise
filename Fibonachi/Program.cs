@@ -13,14 +13,19 @@ internal partial class Program
 
             if (int.TryParse(input, out module))
             {
-                FibanochiPeriodFinder finder = new();
+                if (module < 1)
+                {
+                    PrintIncorectInput();
+                    continue;
+                }
 
                 try
                 {
+                    FibanochiPeriodFinder finder = new();
+
                     var value = finder.FindByModule(module);
 
-                    Console.WriteLine($"Период последовательности: {value}");
-                    Console.Write("\n\n\n");
+                    Console.WriteLine($"Период последовательности: {value}\n");
                 }
                 catch (Exception exc)
                 {
@@ -29,8 +34,10 @@ internal partial class Program
             }
             else
             {
-                Console.WriteLine("некорректный ввод");
+                PrintIncorectInput();
             }
         }
     }
+
+    private static void PrintIncorectInput() => Console.WriteLine("Некорректный ввод\n");
 }
