@@ -1,6 +1,4 @@
-﻿using System.CodeDom.Compiler;
-
-namespace Fibonachi.Utilites
+﻿namespace Fibonachi.Utilites
 {
     public class SequenceLenghtFinder
     {

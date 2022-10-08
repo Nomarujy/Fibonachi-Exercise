@@ -1,9 +1,4 @@
 ﻿using Fibonachi.Utilites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fibonachi
 {
@@ -18,7 +13,7 @@ namespace Fibonachi
             sequenceLenghtFinder = new();
         }
 
-        public int FindPeriodByModule(int module)
+        public int FindByModule(int module)
         {
             List<int> NumStorage = new();
             generator.Module = module;
@@ -37,7 +32,9 @@ namespace Fibonachi
 
         private void GenerateNumbers(List<int> NumStorage, int count)
         {
-            for (int i = NumStorage.Count; i < NumStorage.Count + count; i++)
+            int countAfterGenerating = NumStorage.Count + count;
+
+            for (int i = NumStorage.Count; i < countAfterGenerating; i++)
             {
                 int number = generator.FindNumber(i);
                 Console.WriteLine($"Generated {i}: {number}");

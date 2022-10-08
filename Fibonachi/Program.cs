@@ -1,28 +1,36 @@
 ﻿using Fibonachi;
-using Fibonachi.Utilites;
 
-partial class Program
+internal partial class Program
 {
-    static void Main()
+    private static void Main()
     {
-        Console.Write("Введите модуль:");
-        string? input = Console.ReadLine();
-
-        int module;
-
-        /*if (int.TryParse(input, out module))
+        while (true)
         {
-            FibanochiPeriodFinder finder = new();
+            Console.Write("Введите модуль:");
+            string? input = Console.ReadLine();
 
-            var value = finder.Find(module);
+            int module;
 
-            Console.WriteLine($"Sequence lenght is {value}");
+            if (int.TryParse(input, out module))
+            {
+                FibanochiPeriodFinder finder = new();
+
+                try
+                {
+                    var value = finder.FindByModule(module);
+
+                    Console.WriteLine($"Период последовательности: {value}");
+                    Console.Write("\n\n\n");
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("некорректный ввод");
+            }
         }
-        else
-        {
-            Console.WriteLine("некорректный ввод");
-        }*/
-
-        Console.ReadKey();
-    } 
+    }
 }

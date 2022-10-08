@@ -1,15 +1,10 @@
 ﻿using Fibonachi.Utilites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests
 {
     public class SequencesLenghtFinderTest
     {
-        SequenceLenghtFinder Finder;
+        private readonly SequenceLenghtFinder Finder;
 
         public SequencesLenghtFinderTest()
         {
@@ -19,7 +14,7 @@ namespace UnitTests
         [Fact]
         public void ReturnNegativeIfSequenceNotRepetable()
         {
-            List<int> nums = new List<int>() { 5, 5, 5, 6, 5, 5};
+            List<int> nums = new List<int>() { 5, 5, 5, 6, 5, 5 };
 
             int lenght = Finder.FindByList(nums);
 
@@ -40,7 +35,7 @@ namespace UnitTests
         [Fact]
         public void ReturnNegativeIfSizeNotEnough()
         {
-            List<int> nums = new List<int>() { 1, 2, 3, 4, 1, 2, 3};
+            List<int> nums = new List<int>() { 1, 2, 3, 4, 1, 2, 3 };
 
             int lenght = Finder.FindByList(nums);
 
