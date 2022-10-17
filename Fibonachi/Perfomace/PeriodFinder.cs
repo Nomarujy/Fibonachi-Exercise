@@ -14,10 +14,16 @@ namespace Fibonachi.Perfomace
             sequenceFinder = new FastSequenceFinder();
         }
 
+        private void Reset()
+        {
+            currentIndex = 0;
+            sequenceFinder.ResetSequence();
+        }
+
         public int FindPeriod(int module)
         {
+            Reset();
             fibanochiGenerator.Module = module;
-            currentIndex = 0;
 
             int res = -1;
             do

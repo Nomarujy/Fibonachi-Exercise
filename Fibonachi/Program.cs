@@ -1,10 +1,11 @@
-﻿using Fibonachi.FirtSolution;
-using Fibonachi.Perfomace;
+﻿using Fibonachi.Perfomace;
 
 internal partial class Program
 {
     private static void Main()
     {
+        PeriodFinder finder = new();
+
         while (true)
         {
             Console.Write("Введите модуль:");
@@ -17,8 +18,6 @@ internal partial class Program
                     PrintIncorectInput();
                     continue;
                 }
-
-                PeriodFinder finder = new();
 
                 int value = finder.FindPeriod(module);
 
