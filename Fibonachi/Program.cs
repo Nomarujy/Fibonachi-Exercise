@@ -1,4 +1,5 @@
-﻿using Fibonachi;
+﻿using Fibonachi.FirtSolution;
+using Fibonachi.Perfomace;
 
 internal partial class Program
 {
@@ -9,28 +10,19 @@ internal partial class Program
             Console.Write("Введите модуль:");
             string? input = Console.ReadLine();
 
-            int module;
-
-            if (int.TryParse(input, out module))
+            if (int.TryParse(input, out int module))
             {
-                if (module < 1)
+                if (module < 2)
                 {
                     PrintIncorectInput();
                     continue;
                 }
 
-                try
-                {
-                    FibanochiPeriodFinder finder = new();
+                PeriodFinder finder = new();
 
-                    var value = finder.FindByModule(module);
+                int value = finder.FindPeriod(module);
 
-                    Console.WriteLine($"Период последовательности: {value}\n");
-                }
-                catch (Exception exc)
-                {
-                    Console.WriteLine(exc.Message);
-                }
+                Console.WriteLine($"Период последовательности: {value}\n");
             }
             else
             {

@@ -1,6 +1,4 @@
-﻿using Fibonachi.Utilites;
-
-namespace Fibonachi
+﻿namespace Fibonachi.FirtSolution
 {
     public class FibanochiPeriodFinder
     {

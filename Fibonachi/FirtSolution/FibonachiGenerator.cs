@@ -1,4 +1,4 @@
-﻿namespace Fibonachi
+﻿namespace Fibonachi.FirtSolution
 {
     public class FibonachiGenerator
     {

@@ -1,4 +1,4 @@
-﻿namespace Fibonachi.Utilites
+﻿namespace Fibonachi.FirtSolution
 {
     public class SequenceLenghtFinder
     {
